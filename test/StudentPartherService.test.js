@@ -34,7 +34,24 @@ describe("Test para StudentPartherService", () =>{
               "previousCourses": 1,
               "haveCertification": true
             }]
-        const totalStudents = StudentPartherService.getStudentsCertication(studens);
-        expect(totalStudents[0]).toBe(true)
+        const totalStudents = StudentPartherService.getStudentsCertification(studens);
+        expect(totalStudents.length).toBe(1)
+    })
+
+    test("Requerimiento 3: Regresar todos los estudiantes con certificacion", () =>{
+        const studens = [
+            {
+             
+              "credits": 508,
+             
+            },
+            {
+             
+                "credits": 50,
+               
+              }]
+        const totalStudents = StudentPartherService.getHighCreditStudents(studens);
+        console.log(totalStudents)
+        expect(totalStudents.length).toBe(1)
     })
 })
