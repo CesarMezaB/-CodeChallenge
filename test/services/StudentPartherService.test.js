@@ -1,4 +1,4 @@
-const StudentPartherService = require("../lib/services/StudentPartherService");
+const StudentPartherService = require("../../lib/services/StudentPartherService");
 
 describe("Test para StudentPartherService", () =>{
 
@@ -41,14 +41,10 @@ describe("Test para StudentPartherService", () =>{
     test("Requerimiento 3: Regresar todos los estudiantes con certificacion", () =>{
         const studens = [
             {
-             
                 "credits": 508,
-             
             },
             {
-             
                 "credits": 50,
-               
             }];
         const totalStudents = StudentPartherService.getHighCreditStudents(studens);
         console.log(totalStudents);
