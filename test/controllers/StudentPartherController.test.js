@@ -1,3 +1,4 @@
+const StudentService = require("../../lib/services/StudentPartherService");
 const StudentPartherController = require("../../lib/controllers/StudentPartherController");
 
 describe("Test para StudentPartherController ", () =>{ 
@@ -6,6 +7,10 @@ describe("Test para StudentPartherController ", () =>{
         expect(students.length > 0).toBe(true);
     });
 
-    
+    test("Requerimiento 2: Lista de estudiantes ", () => {
+        const students = StudentPartherController.filterStudents();
+        const totalStuedents = StudentService.getStudentsCertification(students);
+        expect(totalStuedents.map((student) => student.haveCertification === true ).length > 0).toBe(true);
+    });
     
 });
