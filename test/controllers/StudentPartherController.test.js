@@ -7,10 +7,17 @@ describe("Test para StudentPartherController ", () =>{
         expect(students.length > 0).toBe(true);
     });
 
-    test("Requerimiento 2: Lista de estudiantes ", () => {
+    test("Requerimiento 2: Lista de estudiantes con certificacion  ", () => {
         const students = StudentPartherController.filterStudents();
         const totalStuedents = StudentService.getStudentsCertification(students);
         expect(totalStuedents.map((student) => student.haveCertification === true ).length > 0).toBe(true);
     });
+
+    test("Requerimiento 2: Lista de estudiantes con mayor credito de 500", () => {
+        const students = StudentPartherController.filterStudents();
+        const studentsCredits = StudentPartherController.getCreditStudents(students);
+        expect(studentsCredits[0].credits).toBe(508);
+    });
+
     
 });
